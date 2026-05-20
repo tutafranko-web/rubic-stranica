@@ -495,6 +495,59 @@
     });
   });
 
+  /* ----- CUSTOM CURSOR (desktop with mouse only) ----- */
+  if (!rm && window.matchMedia('(hover: hover) and (pointer: fine)').matches && window.innerWidth > 1024) {
+    const dot = document.createElement('div');
+    dot.className = 'cursor-dot';
+    const ring = document.createElement('div');
+    ring.className = 'cursor-ring';
+    document.body.appendChild(dot);
+    document.body.appendChild(ring);
+    document.body.classList.add('has-cursor');
+
+    let mx = window.innerWidth / 2, my = window.innerHeight / 2;
+    let rx = mx, ry = my;
+    let raf;
+
+    const move = (e) => {
+      mx = e.clientX; my = e.clientY;
+      dot.style.left = mx + 'px';
+      dot.style.top = my + 'px';
+    };
+    const loop = () => {
+      rx += (mx - rx) * 0.18;
+      ry += (my - ry) * 0.18;
+      ring.style.left = rx + 'px';
+      ring.style.top = ry + 'px';
+      raf = requestAnimationFrame(loop);
+    };
+    document.addEventListener('mousemove', move);
+    loop();
+
+    // Hover state on interactive elements
+    const hoverables = 'a,button,[data-magnetic],input,select,textarea,.destination-card,.service-card,.pricing-row:not(.pricing-row--head),.faq-item summary,.gallery-item,.fleet__visual,.testimonial';
+    document.querySelectorAll(hoverables).forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        ring.classList.add('hover');
+        dot.classList.add('hover');
+      });
+      el.addEventListener('mouseleave', () => {
+        ring.classList.remove('hover');
+        dot.classList.remove('hover');
+      });
+    });
+
+    // Hide cursor when leaving window
+    document.addEventListener('mouseleave', () => {
+      dot.classList.add('hide');
+      ring.classList.add('hide');
+    });
+    document.addEventListener('mouseenter', () => {
+      dot.classList.remove('hide');
+      ring.classList.remove('hide');
+    });
+  }
+
   /* ----- ESCAPE: close mobile nav ----- */
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
