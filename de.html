@@ -34,12 +34,18 @@
 </head>
 <body>
 
+<div class="loader" id="loader">
+  <div class="loader__logo">Transfer Split<small>MARIN RUBIĆ</small></div>
+  <div class="loader__bar"></div>
+</div>
+<div class="scroll-progress" aria-hidden="true"><div class="scroll-progress__fill"></div></div>
+
 <div class="topbar">
   <div class="container topbar__inner">
     <div class="topbar__contact">
       <a href="tel:+385911234567"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>+385 91 XXX XXXX</a>
       <a href="mailto:info@transfer-split.com"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg>info@transfer-split.com</a>
-      <span style="display:inline-flex;align-items:center;gap:8px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold)"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>24/7 verfügbar</span>
+      <span class="online-badge">Fahrer online · 24/7</span>
     </div>
     <div class="topbar__lang"><a href="/">HR</a><a href="en.html">EN</a><a href="de.html" class="active">DE</a></div>
   </div>
@@ -58,14 +64,19 @@
 </header>
 
 <section class="hero">
+  <svg class="hero__route" viewBox="0 0 1400 800" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M -20 600 Q 300 500 500 550 T 900 400 T 1420 250" />
+    <path d="M -20 200 Q 200 300 450 200 T 800 350 T 1420 450" />
+    <circle cx="500" cy="540" r="5" /><circle cx="900" cy="400" r="5" /><circle cx="450" cy="205" r="5" /><circle cx="800" cy="350" r="5" />
+  </svg>
   <div class="container hero__inner">
     <div class="hero__text">
       <span class="hero__eyebrow">Premium Privat-Transfers · Split</span>
       <h1 class="hero__title">Komfortable Fahrten durch <em>Dalmatien</em> ohne Kompromisse.</h1>
       <p class="hero__lede">Private Taxi- und Transferdienste ab Split — Flughafen, Dubrovnik, Makarska, Trogir und mehr. Festpreise, professioneller Fahrer, Pünktlichkeit auf die Sekunde.</p>
       <div class="hero__cta">
-        <a href="#buchung" class="btn btn--primary btn--lg">Transfer buchen<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
-        <a href="https://wa.me/385911234567" class="btn btn--ghost btn--lg" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12 0C5.373 0 0 5.373 0 12c0 2.116.55 4.106 1.515 5.832L0 24l6.392-1.671A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>WhatsApp</a>
+        <a href="#buchung" class="btn btn--primary btn--lg" data-magnetic="0.2">Transfer buchen<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+        <a href="https://wa.me/385911234567" class="btn btn--ghost btn--lg" target="_blank" rel="noopener" data-magnetic="0.2"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12 0C5.373 0 0 5.373 0 12c0 2.116.55 4.106 1.515 5.832L0 24l6.392-1.671A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>WhatsApp</a>
       </div>
       <ul class="hero__features">
         <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Festpreise</li>
@@ -90,23 +101,42 @@
 
 <section class="trust" style="padding:48px 0">
   <div class="container trust__inner">
-    <div class="trust__item"><div class="trust__icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div class="trust__text"><strong>24 / 7</strong><span>Täglich verfügbar</span></div></div>
-    <div class="trust__item"><div class="trust__icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5.55 3.84 10.74 8 12 4.16-1.26 8-6.45 8-12V5l-8-3z"/><path d="m9 12 2 2 4-4"/></svg></div><div class="trust__text"><strong>100%</strong><span>Sicher & lizensiert</span></div></div>
-    <div class="trust__item"><div class="trust__icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><div class="trust__text"><strong>Festpreise</strong><span>Keine versteckten Kosten</span></div></div>
-    <div class="trust__item"><div class="trust__icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><div class="trust__text"><strong>5.0 ★</strong><span>Zufriedene Kunden</span></div></div>
+    <div class="trust__item"><div class="trust__icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div class="trust__text"><strong><span class="counter" data-counter="24" data-suffix="/7">24/7</span></strong><span>Täglich verfügbar</span></div></div>
+    <div class="trust__item"><div class="trust__icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5.55 3.84 10.74 8 12 4.16-1.26 8-6.45 8-12V5l-8-3z"/><path d="m9 12 2 2 4-4"/></svg></div><div class="trust__text"><strong><span class="counter" data-counter="500" data-suffix="+">0+</span></strong><span>Zufriedene Passagiere</span></div></div>
+    <div class="trust__item"><div class="trust__icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><div class="trust__text"><strong><span class="counter" data-counter="0" data-prefix="€">€0</span></strong><span>Versteckte Kosten</span></div></div>
+    <div class="trust__item"><div class="trust__icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><div class="trust__text"><strong><span class="counter" data-counter="5" data-decimals="1" data-suffix=" ★">0.0 ★</span></strong><span>Durchschnittsbewertung</span></div></div>
   </div>
 </section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <span class="marquee__item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> <strong>Split → Dubrovnik</strong> · 250 €</span>
+    <span class="marquee__item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> <strong>Flughafen → Makarska</strong> · 110 €</span>
+    <span class="marquee__item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> <strong>Flughafen → Trogir</strong> · 20 €</span>
+    <span class="marquee__item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> <strong>Split → Plitvice</strong> · 290 €</span>
+    <span class="marquee__item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> <strong>Split → Mostar</strong> · 220 €</span>
+    <span class="marquee__item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> <strong>Split → Hvar</strong> · ab 90 €</span>
+    <span class="marquee__item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> <strong>Split → Zadar</strong> · 180 €</span>
+    <span class="marquee__item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> <strong>Split → Dubrovnik</strong> · 250 €</span>
+    <span class="marquee__item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> <strong>Flughafen → Makarska</strong> · 110 €</span>
+    <span class="marquee__item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> <strong>Flughafen → Trogir</strong> · 20 €</span>
+    <span class="marquee__item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> <strong>Split → Plitvice</strong> · 290 €</span>
+    <span class="marquee__item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> <strong>Split → Mostar</strong> · 220 €</span>
+    <span class="marquee__item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> <strong>Split → Hvar</strong> · ab 90 €</span>
+    <span class="marquee__item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> <strong>Split → Zadar</strong> · 180 €</span>
+  </div>
+</div>
 
 <section id="leistungen">
   <div class="container">
     <div class="section__header"><span class="eyebrow">Unsere Leistungen</span><h2 class="section-title">Alles für eine <em>entspannte</em> Anreise.</h2><p class="section-lede">Jeder Transfer ist privat — Sie und Ihre Begleitung allein im Fahrzeug. Kein Sharing, keine Umwege.</p></div>
     <div class="services-grid">
-      <article class="service-card"><div class="service-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg></div><h3>Flughafentransfers</h3><p>Abholung von Split (SPU), Zadar (ZAD), Dubrovnik (DBV), Zagreb (ZAG). Live-Flugverfolgung — kein Aufpreis bei Verspätungen.</p></article>
-      <article class="service-card"><div class="service-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><h3>Städteübergreifend</h3><p>Split — Dubrovnik, Makarska, Trogir, Zadar, Šibenik, Plitvice, Mostar, Sarajevo. Privat, direkt.</p></article>
-      <article class="service-card"><div class="service-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 21c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2"/><path d="M19.38 20A11.6 11.6 0 0 0 21 14l-9-4-9 4c0 2.9.94 5.34 2.81 7.76"/></svg></div><h3>Hafentransfers</h3><p>Transfer zum Hafen Split, Stari Grad (Hvar), Supetar (Brač), Vis. Abgestimmt auf Jadrolinija-Fahrpläne.</p></article>
-      <article class="service-card"><div class="service-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div><h3>Tagesausflüge</h3><p>Private Touren durch Dalmatien — Krka, Plitvice, Trogir, Šibenik. Individuelle Route.</p></article>
-      <article class="service-card"><div class="service-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div><h3>Geschäftsreisen</h3><p>Diskrete Transfers für Geschäftskunden, Meetings, Konferenzen. Rechnung verfügbar.</p></article>
-      <article class="service-card"><div class="service-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.5-1.5 3-3.4 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.1 1.5 4 3 5.5l7 7Z"/></svg></div><h3>Hochzeiten & Events</h3><p>Transfers für Brautpaar und Gäste, Transport zu Veranstaltungsorten. Fahrzeugdeko auf Wunsch.</p></article>
+      <article class="service-card tilt"><div class="service-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg></div><h3>Flughafentransfers</h3><p>Abholung von Split (SPU), Zadar (ZAD), Dubrovnik (DBV), Zagreb (ZAG). Live-Flugverfolgung — kein Aufpreis bei Verspätungen.</p></article>
+      <article class="service-card tilt"><div class="service-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><h3>Städteübergreifend</h3><p>Split — Dubrovnik, Makarska, Trogir, Zadar, Šibenik, Plitvice, Mostar, Sarajevo. Privat, direkt.</p></article>
+      <article class="service-card tilt"><div class="service-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 21c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2"/><path d="M19.38 20A11.6 11.6 0 0 0 21 14l-9-4-9 4c0 2.9.94 5.34 2.81 7.76"/></svg></div><h3>Hafentransfers</h3><p>Transfer zum Hafen Split, Stari Grad (Hvar), Supetar (Brač), Vis. Abgestimmt auf Jadrolinija-Fahrpläne.</p></article>
+      <article class="service-card tilt"><div class="service-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div><h3>Tagesausflüge</h3><p>Private Touren durch Dalmatien — Krka, Plitvice, Trogir, Šibenik. Individuelle Route.</p></article>
+      <article class="service-card tilt"><div class="service-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div><h3>Geschäftsreisen</h3><p>Diskrete Transfers für Geschäftskunden, Meetings, Konferenzen. Rechnung verfügbar.</p></article>
+      <article class="service-card tilt"><div class="service-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.5-1.5 3-3.4 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.1 1.5 4 3 5.5l7 7Z"/></svg></div><h3>Hochzeiten & Events</h3><p>Transfers für Brautpaar und Gäste, Transport zu Veranstaltungsorten. Fahrzeugdeko auf Wunsch.</p></article>
     </div>
   </div>
 </section>
@@ -139,8 +169,8 @@
 
 <section id="fahrzeug" class="fleet">
   <div class="container fleet__inner">
-    <div class="fleet__visual">
-      <div class="fleet__badge">Verfügbar</div>
+    <div class="fleet__visual" data-lightbox="assets/img/peugeot-308.jpg" style="cursor:zoom-in">
+      <div class="fleet__badge">Sofort verfügbar</div>
       <img src="assets/img/peugeot-308.jpg" alt="Peugeot 308 - Transferfahrzeug Split" loading="lazy">
       <div class="fleet__plate">ST 9736-AS</div>
     </div>
@@ -303,6 +333,37 @@
 <a href="https://wa.me/385911234567" class="fab" target="_blank" rel="noopener" aria-label="WhatsApp">
   <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12 0C5.373 0 0 5.373 0 12c0 2.116.55 4.106 1.515 5.832L0 24l6.392-1.671A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
 </a>
+
+<a href="#top" class="back-top" aria-label="Nach oben">
+  <span class="back-top__progress" aria-hidden="true"></span>
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</a>
+
+<div class="sticky-cta" aria-hidden="true">
+  <span class="sticky-cta__text"><strong>Transfer benötigt?</strong> In 2 Minuten buchen</span>
+  <a href="#buchung" class="btn btn--primary">Buchen →</a>
+</div>
+
+<div class="notify" id="notify" role="status" aria-live="polite">
+  <div class="notify__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+  <div class="notify__text"></div>
+  <button class="notify__close" aria-label="Schließen">×</button>
+</div>
+
+<div class="cookie" id="cookie" role="dialog">
+  <div class="cookie__icon">🍪</div>
+  <h4>Cookies</h4>
+  <p>Wir verwenden Cookies zur Verbesserung der Nutzererfahrung. Mehr in unserer <a href="#kontakt">Datenschutzerklärung</a>.</p>
+  <div class="cookie__btns">
+    <button class="btn btn--outline" data-cookie="rejected">Ablehnen</button>
+    <button class="btn btn--primary" data-cookie="accepted">Akzeptieren</button>
+  </div>
+</div>
+
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox__close" aria-label="Schließen">×</button>
+  <img class="lightbox__img" src="" alt="">
+</div>
 
 <script src="assets/js/main.js" defer></script>
 </body>
