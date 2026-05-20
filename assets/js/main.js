@@ -426,6 +426,75 @@
     document.head.appendChild(style);
   }
 
+  /* ----- PRICING ROW CLICK -> PREFILL BOOKING ----- */
+  $$('.pricing-row:not(.pricing-row--head)').forEach(row => {
+    row.addEventListener('click', () => {
+      const route = row.querySelector('.pricing-row__route')?.textContent.trim();
+      if (!route) return;
+      const arrow = route.includes('→') ? '→' : '-';
+      const parts = route.split(arrow).map(p => p.trim());
+      if (parts.length !== 2) return;
+
+      const pickup = document.getElementById('hf-pickup');
+      const dropoff = document.getElementById('hf-dropoff');
+      if (pickup) {
+        // Strip icon text artifacts
+        pickup.value = parts[0].replace(/^\s*[​-‍﻿]?\s*/, '').replace(/\s+/g, ' ').trim();
+        pickup.parentElement?.classList.add('field--pulse');
+      }
+      if (dropoff) {
+        dropoff.value = parts[1].replace(/\s+/g, ' ').trim();
+        dropoff.parentElement?.classList.add('field--pulse');
+      }
+      setTimeout(() => {
+        document.querySelectorAll('.field--pulse').forEach(f => f.classList.remove('field--pulse'));
+      }, 1600);
+
+      // Scroll to booking section
+      const target = $('#rezervacija, #booking, #buchung');
+      if (target) {
+        const headerH = (header?.offsetHeight || 80) + 20;
+        const top = target.getBoundingClientRect().top + window.scrollY - headerH;
+        window.scrollTo({ top, behavior: rm ? 'auto' : 'smooth' });
+      }
+    });
+  });
+
+  /* ----- DESTINATION CARD CLICK -> PREFILL BOOKING ----- */
+  $$('.destination-card').forEach(card => {
+    card.addEventListener('click', (e) => {
+      e.preventDefault();
+      const dest = card.querySelector('.destination-info h3')?.textContent.trim();
+      if (!dest) return;
+      const dropoff = document.getElementById('hf-dropoff');
+      const pickup = document.getElementById('hf-pickup');
+      const lang = document.documentElement.lang || 'hr';
+      const defaults = {
+        hr: 'Aerodrom Split',
+        en: 'Split Airport',
+        de: 'Flughafen Split'
+      };
+      if (dropoff) {
+        dropoff.value = dest;
+        dropoff.parentElement?.classList.add('field--pulse');
+      }
+      if (pickup && !pickup.value) {
+        pickup.value = defaults[lang] || defaults.hr;
+        pickup.parentElement?.classList.add('field--pulse');
+      }
+      setTimeout(() => {
+        document.querySelectorAll('.field--pulse').forEach(f => f.classList.remove('field--pulse'));
+      }, 1600);
+
+      const target = $('#rezervacija, #booking, #buchung');
+      if (target) {
+        const headerH = (header?.offsetHeight || 80) + 20;
+        const top = target.getBoundingClientRect().top + window.scrollY - headerH;
+        window.scrollTo({ top, behavior: rm ? 'auto' : 'smooth' });
+      }
+    });
+  });
+
   /* ----- ESCAPE: close mobile nav ----- */
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
