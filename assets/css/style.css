@@ -1763,6 +1763,60 @@ section{padding:100px 0}
 }
 
 /* ========================================================
+   MOBILE BOTTOM NAV (mobile only)
+   ======================================================== */
+.mob-nav{
+  position:fixed;bottom:0;left:0;right:0;
+  background:var(--white);
+  border-top:1px solid var(--line);
+  box-shadow:0 -8px 30px rgba(11,30,63,.08);
+  padding:8px 8px calc(8px + env(safe-area-inset-bottom));
+  display:none;
+  z-index:80;
+}
+.mob-nav__inner{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:4px;
+}
+.mob-nav__btn{
+  display:flex;flex-direction:column;align-items:center;gap:4px;
+  padding:8px 4px;
+  background:transparent;border:none;
+  font-size:10px;font-weight:600;letter-spacing:.02em;
+  color:var(--muted);
+  border-radius:8px;
+  transition:all var(--transition);
+  text-decoration:none;
+}
+.mob-nav__btn svg{width:22px;height:22px;color:var(--navy)}
+.mob-nav__btn:hover,.mob-nav__btn--primary{color:var(--navy)}
+.mob-nav__btn--primary{
+  background:linear-gradient(135deg,var(--gold),var(--gold-dark));
+  color:var(--white) !important;
+}
+.mob-nav__btn--primary svg{color:var(--white)}
+.mob-nav__btn--whatsapp svg{color:#25D366}
+
+/* ========================================================
+   LIVE CLOCK
+   ======================================================== */
+.clock{
+  display:inline-flex;align-items:center;gap:8px;
+  color:var(--gold-light);font-variant-numeric:tabular-nums;
+  font-size:12px;font-weight:500;
+}
+.clock::before{
+  content:"";width:6px;height:6px;
+  background:var(--gold);border-radius:50%;
+  animation:online-pulse 2s infinite;
+}
+
+/* ========================================================
+   PARALLAX HERO LAYERS
+   ======================================================== */
+.hero__inner{transform:translateY(var(--parallax-text,0))}
+
+/* ========================================================
    RESPONSIVE for new sections
    ======================================================== */
 @media (max-width: 960px){
@@ -1777,6 +1831,13 @@ section{padding:100px 0}
   .stat{border-right:none;border-bottom:1px solid rgba(255,255,255,.08);padding:20px}
   .stat:nth-child(2){border-right:none}
   .stat:nth-last-child(-n+2){border-bottom:none}
+  .mob-nav{display:block}
+  .fab{bottom:80px}
+  .back-top{bottom:80px;right:20px}
+  body{padding-bottom:64px}
+  .sticky-cta.show{bottom:78px}
+  .notify{bottom:78px}
+  .cookie{bottom:78px;right:16px;left:16px;max-width:none}
 }
 
 /* ========================================================

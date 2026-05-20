@@ -548,6 +548,26 @@
     });
   }
 
+  /* ----- LIVE CLOCK (Split / Europe/Zagreb timezone) ----- */
+  const clock = $('#clock');
+  if (clock) {
+    const updateClock = () => {
+      try {
+        const now = new Date().toLocaleTimeString('hr-HR', {
+          timeZone: 'Europe/Zagreb',
+          hour: '2-digit',
+          minute: '2-digit',
+          hour12: false
+        });
+        clock.textContent = now + ' (Split)';
+      } catch (e) {
+        clock.textContent = new Date().toTimeString().slice(0, 5) + ' (Split)';
+      }
+    };
+    updateClock();
+    setInterval(updateClock, 30000);
+  }
+
   /* ----- ESCAPE: close mobile nav ----- */
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
